@@ -1,0 +1,96 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\allowdisplaybreaks
+
+\usepackage{physics}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+\begin{document}
+
+\section*{\S\,2. Representation of the thermodynamic quantities of a superconductor in the form of functional integrals}
+
+We shall consider a model of a superconductor in which the Hamiltonian of the electronic system is a sum of the Hamiltonian of free electrons $H_{0}$ and the Hamiltonian describing, in simplified form, the direct interaction between electrons induced by phonons. Thus, we assume *) 
+\begin{equation}
+H = H_{0} + H_{\mathrm{int}}, \tag{2.1}
+\end{equation}
+\begin{equation}
+H_{0} = \sum_{\sigma}\int \psi^{+}_{\sigma}(\mathbf r)\,\frac{\hat{\mathbf p}^{\,2}}{2m}\,\psi_{\sigma}(\mathbf r)\,d\mathbf r, \tag{2.2}
+\end{equation}
+\begin{equation}
+H_{\mathrm{int}} = g\int \psi^{+}_{\uparrow}(\mathbf r)\,\psi^{+}_{\downarrow}(\mathbf r)\,\psi_{\downarrow}(\mathbf r)\,\psi_{\uparrow}(\mathbf r)\,d\mathbf r. \tag{2.3}
+\end{equation}
+
+For simplicity the interaction Hamiltonian is written in local form in configuration space. It is necessary to remember that in reality this form is quasi-local, therefore upon passing to momentum space one should take into account the cutoff of sums over momenta at the Debye frequency. Forgetting this circumstance would lead to divergences analogous to those which take place in quantum field theory with local interaction. It is essential, however, that (as will be seen from further calculations) divergences will arise at some isolated points, for example, in calculating the critical temperature; at these points the necessity of a cutoff appears. As a rule, in calculating physical quantities there arise series whose higher terms converge sufficiently rapidly and do not depend on the cutoff. It is possible to accelerate the convergence by subtracting
+
+the corresponding result relating to the normal (non-superconducting) state. Thus, on the basis of the accepted simplified model of a superconductor it turns out possible to give a quantitative description of a wide circle of physical effects.
+
+Our nearest goal is the representation of the grand statistical sum and a number of other quantities relating to a superconductor in the form of functional integrals. Such representations are convenient, since they allow one to give an exposition of the microscopic theory of superconductivity in a sufficiently compact form. Many results are obtained in this way more simply than by others, and the connections between various mathematical formulations of the theory of superconductivity are in this case traced more easily.
+
+The method of functional integration is promising also in that with its help one succeeds in going beyond the limits of the approximation of the self-consistent field, which is the basis of the modern formulation of the theory. By virtue of the favorable relation between the parameters entering the theory, this approximation turns out to be rather accurate for a massive superconductor at temperatures not too close to the critical one. In recent years those aspects of the phenomenon of superconductivity have been studied ever more intensively, for the description of which it is necessary to refine the approximation of the self-consistent field. The method of functional integration turns out here to be very convenient. Using exact functional quadratures, we shall easily see in which cases such a refinement is necessary.
+
+Let us represent the statistical operator in the form of a product of the statistical operator relating to the system of free electrons, and the corresponding $T$-exponent. Then for the grand statistical sum we obtain
+\[
+  Z=\mathrm{Sp}\left\{e^{-\beta\mathcal{H}_{0}}\,T_{\tau}\exp\!\left(-\int_{0}^{\beta}H_{\mathrm{int}}(\tau)\,d\tau\right)\right\}.
+\]
+Here $\mathcal{H}_{0}=H_{0}-\mu\hat N$, and the operators in the expression for $H_{\mathrm{int}}$ are taken in the interaction representation. Substituting here the expression for $H_{\mathrm{int}}$, we see that the $T$-exponent has the following form:
+\begin{align*}
+T_{\tau}\exp\!\left\{-g\int_{0}^{\beta}d\tau\int d\mathbf r\,
+\psi^{+}_{\uparrow}(\mathbf r,\tau)\psi^{+}_{\downarrow}(\mathbf r,\tau)\psi_{\downarrow}(\mathbf r,\tau)\psi_{\uparrow}(\mathbf r,\tau)\right\}
+= \\
+T_{\tau}\exp\!\left\{\int_{0}^{\beta}d\tau\int L^{+}(\mathbf r,\tau)L(\mathbf r,\tau)\,d\mathbf r\right\}.
+\end{align*}
+As shown in the Appendix, in this case for the $T$-exponent the representation through a functional integral over the space of functions depending on $\mathbf r$ and $\tau$*) is valid:
+\begin{align*}
+&T_{\tau}\exp\!\left\{\int_{0}^{\beta}d\tau\int L^{+}(\mathbf r,\tau)L(\mathbf r,\tau)\,d\mathbf r\right\}
+= \\
+&\frac{
+\displaystyle \int D\zeta\,D\zeta^{*}\,
+\exp\!\left(-\int_{0}^{\beta}d\tau\int d\mathbf r\,\abs{\zeta(\mathbf r,\tau)}^{2}\right)\,
+T_{\tau}\exp\!\left\{\int_{0}^{\beta}d\tau\int d\mathbf r\,\big(L^{+}(\mathbf r,\tau)\zeta(\mathbf r,\tau)+\text{e.c.}\big)\right\}
+}{
+ \int D\zeta\,D\zeta^{*}\,
+\exp\!\left(-\int_{0}^{\beta}d\tau\int d\mathbf r\,\abs{\zeta(\mathbf r,\tau)}^{2}\right)
+}.
+\end{align*}
+
+Taking into account that $L$ is proportional to $\sqrt{\abs{g}}$, we make a scale transformation of the integration variable, putting $\zeta(\mathbf r,\tau)=\abs{g}^{-1/2}\Delta(\mathbf r,\tau)$. As a result the statistical sum turns out to be represented in the form of a functional integral:
+\begin{align}
+&ZZ_{0}^{-1}
+=
+\int D\Delta\,D\Delta^{*}\,
+\exp\!\left(\frac{1}{g}\int_{0}^{\beta}d\tau\int d\mathbf r\,\abs{\Delta(\mathbf r,\tau)}^{2}\right) \nonumber \\
+& \times
+\left\langle
+T_{\tau}\exp\!\left\{-\int_{0}^{\beta}d\tau\int d\mathbf r\,\big(\psi^{+}_{\uparrow}(\mathbf r,\tau)\psi^{+}_{\downarrow}(\mathbf r,\tau)\Delta(\mathbf r,\tau)+\text{e.c.}\big)\right\}
+\right\rangle_{0}
+\nonumber  \times \\
+&\left\{
+\int D\Delta\,D\Delta^{*}\,
+\exp\!\left(\frac{1}{g}\int_{0}^{\beta}d\tau\int d\mathbf r\,\abs{\Delta(\mathbf r,\tau)}^{2}\right)
+\right\}^{-1}.
+\tag{2.4}
+\end{align}
+
+Formula (2.4) has a simple physical meaning. The under-integral expression contains the trace of the operator
+\begin{equation}
+e^{-\beta\mathcal{H}_{0}}\,T_{\tau}\exp\!\left\{-\int_{0}^{\beta}d\tau\int d\mathbf r\,\big(\psi^{+}_{\uparrow}(\mathbf r,\tau)\psi^{+}_{\downarrow}(\mathbf r,\tau)\Delta(\mathbf r,\tau)+\text{e.c.}\big)\right\},
+\tag{2.5}
+\end{equation}
+which would represent, with accuracy up to a $c$-number factor, the equilibrium statistical operator of a system of noninteracting electrons in the field of sources of electron pairs with opposite spins, if the power of the sources $\Delta$ did not depend on $\tau$. In such a case we could assert that this statistical operator corresponds to the Hamiltonian
+\[
+  \mathcal{H}_{0}+\int\big(\psi^{+}_{\uparrow}(\mathbf r)\psi^{+}_{\downarrow}(\mathbf r)\Delta(\mathbf r)+\text{e.c.}\big)\,d\mathbf r.
+\]
+In reality, since $\Delta$ depends on the imaginary time $\tau$, there is no such Hamiltonian, nevertheless we shall interpret\dots
+
+\bigskip
+\hrule
+\medskip
+
+*) For more details about this model see in the book Abrikosov, Gor'kov, Dzyaloshinskii (1962).
+
+*) To avoid misunderstandings, we note that $\psi^{+}(\mathbf r,\tau)$ denotes not $\big(\psi(\mathbf r,\tau)\big)^{+}$, but \\ $\exp(\tau\mathcal{H}_{0})\,\psi^{+}(\mathbf r)\,\exp(-\tau\mathcal{H}_{0})$.
+
+\end{document}
+
