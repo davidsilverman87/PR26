@@ -120,6 +120,111 @@ with inner product
 \]
 \end{enumerate}
 
+\subsection*{F2. Field operators on fermionic Fock space}
+
+
+\subsubsection*{F2-1 Configuration-space representation, probability interpretation, and antisymmetry}
+
+An element \(\Psi^{(N)}\in\mathcal H_1^{\wedge N}\) admits a coordinate–spin representation
+\[
+\Psi^{(N)}(x_1,\dots,x_N),
+\qquad x_i=(\mathbf r_i,\sigma_i)\in\mathbb R^3\times\{\uparrow,\downarrow\},
+\]
+which is a complex-valued function on the \(N\)-particle configuration space
+\((\mathbb R^3\times\{\uparrow,\downarrow\})^N\).
+
+For any measurable region \(\Omega\) of this configuration space,
+\[
+\int_\Omega |\Psi^{(N)}(x_1,\dots,x_N)|^2\,dx_1\cdots dx_N
+\]
+is the probability of finding the \(N\) identical fermions with coordinates and spins in \(\Omega\).
+
+Because the fermions are physically identical, \(\Psi^{(N)}\) satisfies the antisymmetry condition
+\[
+\Psi^{(N)}(x_{\pi(1)},\dots,x_{\pi(N)})
+=
+\mathrm{sgn}(\pi)\,\Psi^{(N)}(x_1,\dots,x_N)
+\quad\text{for all }\pi\in S_N,
+\]
+which is the coordinate-space representation of the abstract relation
+\(P_\pi\Psi^{(N)}=\mathrm{sgn}(\pi)\Psi^{(N)}\).
+This antisymmetry leaves probabilities invariant while encoding fermionic exchange at the level of amplitudes.
+
+\subsubsection*{F2-2 Definition of annihilation and creation operators and induced field operators}
+
+For each \(f\in L^2(\mathbb R^3)\) and spin \(\sigma\in\{\uparrow,\downarrow\}\), define the annihilation operator
+\[
+\psi_\sigma(f):\mathcal H_1^{\wedge N}\to\mathcal H_1^{\wedge(N-1)}
+\]
+by
+\[
+(\psi_\sigma(f)\Psi)^{(N-1)}(x_2,\dots,x_N)
+=
+\sqrt{N}\int_{\mathbb R^3} d\mathbf r\;
+f(\mathbf r)\,
+\Psi^{(N)}\big((\mathbf r,\sigma),x_2,\dots,x_N\big),
+\]
+and define the creation operator \(\psi_\sigma^\dagger(f)\) as the Hilbert-space adjoint of \(\psi_\sigma(f)\).
+
+The map \(f\mapsto\psi_\sigma(f)\) is linear in \(f\), and the map
+\(f\mapsto\psi_\sigma^\dagger(f)\) is antilinear. Accordingly, there exist operator-valued distributions
+\(\psi_\sigma(\mathbf r)\) and \(\psi_\sigma^\dagger(\mathbf r)\) such that
+\[
+\psi_\sigma(f)
+=
+\int_{\mathbb R^3} d\mathbf r\; f(\mathbf r)\,\psi_\sigma(\mathbf r),
+\qquad
+\psi_\sigma^\dagger(f)
+=
+\int_{\mathbb R^3} d\mathbf r\; f^*(\mathbf r)\,\psi_\sigma^\dagger(\mathbf r).
+\]
+These relations express the integral representation of the linear dependence of
+\(\psi_\sigma(f)\) and \(\psi_\sigma^\dagger(f)\) on the test function \(f\).
+
+\subsubsection*{F2-3 Particle indistinguishability and slot independence}
+
+Because \(\Psi^{(N)}\) is antisymmetric, the definition of \(\psi_\sigma(f)\) is independent of which coordinate slot is integrated over: integrating over any one slot yields the same \((N-1)\)-particle state up to the sign already fixed by antisymmetry. Thus \(\psi_\sigma(f)\) does not remove a distinguished particle but removes one fermion in the one-particle state specified by \((f,\sigma)\).
+
+\subsubsection*{F2-4 Conditional interpretation of the reduced state}
+
+For any region \(\Omega_{N-1}\subset(\mathbb R^3\times\{\uparrow,\downarrow\})^{N-1}\),
+\[
+\int_{\Omega_{N-1}}
+|(\psi_\sigma(f)\Psi)^{(N-1)}(x_2,\dots,x_N)|^2
+\,dx_2\cdots dx_N
+\]
+is the probability density for finding the remaining \(N-1\) fermions in \(\Omega_{N-1}\),
+conditional on one fermion being in the one-particle state \((f,\sigma)\).
+
+\subsubsection*{F2-5 Canonical anticommutation relations}
+
+The field operators satisfy the canonical anticommutation relations
+\[
+\{\psi_\sigma(\mathbf r),\psi_{\sigma'}^\dagger(\mathbf r')\}
+=
+\delta_{\sigma\sigma'}\,\delta(\mathbf r-\mathbf r'),
+\qquad
+\{\psi_\sigma(\mathbf r),\psi_{\sigma'}(\mathbf r')\}=0,
+\qquad
+\{\psi_\sigma^\dagger(\mathbf r),\psi_{\sigma'}^\dagger(\mathbf r')\}=0,
+\]
+to be interpreted after smearing with test functions.
+
+Equivalently, for smeared operators,
+\[
+\{\psi_\sigma(f),\psi_{\sigma'}^\dagger(g)\}
+=
+\delta_{\sigma\sigma'}\,\langle f,g\rangle_{\mathcal H_1},
+\]
+where
+\[
+\langle f,g\rangle_{\mathcal H_1}
+=
+\int_{\mathbb R^3} d\mathbf r\; f^*(\mathbf r)g(\mathbf r)
+\]
+is the inner product on the one-particle Hilbert space.
+
+This relation expresses the consistency condition that creating a fermion in a one-particle state and then testing for its presence returns precisely the overlap of those one-particle states, and nothing else.
 
 
 
