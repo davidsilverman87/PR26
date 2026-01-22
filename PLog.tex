@@ -1,7 +1,277 @@
-\documentclass{article}
-\usepackage{import}
-\newcommand{\coursename}{Progress Log}
-\import{/Users/davidsilverman/Spring25/Main/}{hwpreamble.tex}
+\documentclass[openany]{book}
+\input{../Main/Preamble.tex}
 \begin{document}
+
 \section{January 21, 2026}
+
+
+\noindent\textbf{Plan:}
+\begin{itemize}
+  \item Translate section 2 of Svidzinsky 
+  \item Establish a firm ground of accepted facts from which the BdG equations will follow.
+  \item Understand how the approximation of the interaction is made.
+\end{itemize}
+
+
+
+
+
+\subsection*{I. Mathematical and Structural Foundations}
+
+\begin{enumerate}
+
+\item \textbf{Tensor product structure.}  
+The many-body Hilbert space is constructed as a graded tensor product of one-particle Hilbert spaces, with fermionic antisymmetrization imposed.
+\begin{ques}
+  What is a tensor product of spaces? What does it mean that fermionic antisymmetrization is imposed? I understand that "swapping particles" must result in negation of the wave function, but what is the mathematical definition of "swapping particles" - I recall that with two particles, it is realized by negating the coordinate system, but am not sure how this extends to the tensor product and many particles. \end{ques}
+  
+  \begin{ans}
+    I re-consulted my linear algebra textbook for the formal definition, and physically, the tensor product of states \(\phi\text{ and } \tau\) is the state of two particles where particle 1 is in state \(\phi\) and particle 2 is in state \(\tau\). \\
+  This is a tensor product of \(\mathcal{H}\) with itself, so swapping particles is simply permuting factors in the tensor product. Hence "anticommutativity" of the \(\otimes\) operator. \end{ans}
+  \begin{ques}
+    \(\psi(r_1,r_2)\) is shorthand for \(\psi_1(r) \otimes \psi_2(r)\)? But is then \(\psi(r_1,r_2)\) no longer a map from \(R^3\) to \(\C\), but rather from \(\R^6\) (not considering the spinor)? Is the "ansatz" wave function \(\tilde{\psi}\) a map from some huge configuration space, or just \(R^3\)? I guess if \(\psi\) represents a state for which the particle number is uncertain, then it would not even be certain what \(\psi \) is a map from. Perhaps the interpretation of wave functions as functions breaks down under the application of the tensor product, and meaning is only extracted through field operators.
+  \end{ques}
+ 
+\item \textbf{Operator-valued distributions.}  
+Field operators $\psi(\mathbf r)$ and $\psi^\dagger(\mathbf r)$ are operator-valued distributions. Products at coincident points are only meaningful under integrals or suitable regularization.
+\begin{ques}
+Are coincident points just identical points?
+\end{ques}
+\end{enumerate}
+
+\subsection*{II. Second Quantization: Formal Axioms}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+
+\item \textbf{Fermionic Fock space.}  
+The fermionic Fock space is constructed from the one-particle Hilbert space. The vacuum state $\lvert 0\rangle$ is annihilated by all annihilation operators.
+\begin{ques}
+    How is it constructed?
+\end{ques}
+
+\item \textbf{Canonical anticommutation relations (CAR).}
+\[
+\{\psi_\alpha(\mathbf r),\psi_\beta^\dagger(\mathbf r')\}
+= \delta_{\alpha\beta}\delta(\mathbf r-\mathbf r'), \qquad
+\{\psi,\psi\}=\{\psi^\dagger,\psi^\dagger\}=0.
+\]
+\begin{ques}
+  These are related to the fermionic particle swapping negation rules right? How?
+\end{ques}
+
+\item \textbf{Operator correspondence.}  
+One-body operators correspond to bilinear forms in field operators; two-body operators correspond to quartic forms. Normal ordering is defined relative to the vacuum.
+
+\begin{ques}
+  What is normal ordering?
+\end{ques}
+\item \textbf{Density and number operators.}
+\[
+\hat n(\mathbf r)=\sum_\alpha \psi_\alpha^\dagger(\mathbf r)\psi_\alpha(\mathbf r).
+\]
+This is taken as an operator identity. 
+\begin{ques}
+  \(\int_V \hat{n}(\mathbf{r}) \mathrm{d}\mathbf{r}\) is the expectation value for the number of particles in volume \(V\)? 
+\end{ques}
+\end{enumerate}
+
+\subsection*{III. Microscopic Hamiltonian Assumptions}
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+
+\item \textbf{Electronic Hamiltonian.}  
+The Hamiltonian consists of kinetic energy, an external potential, and an instantaneous two-body interaction. Spin indices are included explicitly; spin--orbit coupling is absent unless stated.
+
+\item \textbf{Attractive interaction channel.}  
+Only the interaction channel relevant for pairing is retained. This is a controlled truncation, not an identity.
+\end{enumerate}
+
+\subsection*{IV. Statistical Mechanics Layer}
+
+\begin{enumerate}
+\setcounter{enumi}{9}
+
+\item \textbf{Grand canonical ensemble.}  
+The system is described in the grand canonical ensemble with chemical potential $\mu$ included in the Hamiltonian.
+
+\item \textbf{Thermodynamic limit.}  
+The limit $V\to\infty$ is taken prior to symmetry considerations, allowing inequivalent representations of the CAR.
+\begin{ques}
+  What is \(V\), and what are inequivalent representations of the CAR?
+\end{ques}
+
+\item \textbf{Expectation values.}  
+Expectation values $\langle \cdot \rangle$ denote ensemble averages in a chosen equilibrium state and yield c-numbers.
+\begin{ques}
+  What is a c-number?
+\end{ques}
+\end{enumerate}
+
+\subsection*{V. Mean-Field / Saddle-Point Commitment}
+
+\begin{enumerate}
+\setcounter{enumi}{12}
+
+\item \textbf{Mean-field factorization.}  
+Quartic operator products may be approximated by bilinear terms plus c-number fields via a saddle-point approximation. 
+\begin{ques}
+  What is a saddle=point approximation, and why is this an axiom? Doesn't Svidzinsky go through this approximation somewhat carefully?
+\end{ques}
+
+\item \textbf{Order parameter definition.}
+\[
+\Delta(\mathbf r,\mathbf r')
+\equiv
+- V(\mathbf r-\mathbf r')
+\langle \psi_\downarrow(\mathbf r')\psi_\uparrow(\mathbf r)\rangle.
+\]
+This is a definition.
+\begin{ques}
+We're working over momentum states, not position states, so should these \(\mathbf{r}\) be replaced by \(\mathbf{k}\). If not, what does \(V(\mathbf{r} - \mathbf{r}')\) mean physically, considering particles are not localized?
+\end{ques}
+
+\item \textbf{Self-consistency condition.}  
+The mean field must equal the expectation value computed in the resulting quadratic Hamiltonian. 
+\begin{ques}
+  Define the mean field, expectation value of what?
+\end{ques}
+\end{enumerate}
+
+\subsection*{VI. Symmetry-Breaking Commitments}
+
+\begin{enumerate}
+\setcounter{enumi}{15}
+
+\item \textbf{Broken $U(1)$ symmetry.}  
+Particle-number conservation is not enforced at the level of the effective Hamiltonian.
+\begin{ques}
+  Does this mean that the Hamiltonian can change the number of particles in the system? What would this even mean physically?
+\end{ques}
+
+\item \textbf{Anomalous averages.}  
+Expectation values of the form $\langle \psi\psi\rangle$ are permitted and nonzero in the chosen symmetry-broken sector. 
+\begin{ques}
+  What is a symmetry-broken sector? I assume \(\psi \) are the field operators. Why might these not be permitted? Permitted is a rather heuristic term.
+\end{ques}
+
+\item \textbf{Gauge fixing.}  
+A definite global phase of the order parameter is implicitly fixed. 
+\begin{ques}
+  What is a global phase, and what is an order parameter?
+\end{ques}
+\end{enumerate}
+
+\subsection*{VII. Quadratic Fermionic Hamiltonians}
+
+\begin{enumerate}
+\setcounter{enumi}{18}
+
+\item \textbf{Quadratic Hamiltonians.}  
+Any fermionic Hamiltonian quadratic in field operators admits exact diagonalization.
+
+\item \textbf{Bogoliubov transformation.}  
+Diagonalization is achieved via a linear canonical transformation preserving the CAR.
+
+\item \textbf{Nambu formalism.}  
+Doubling of degrees of freedom is a bookkeeping device and introduces no new physical assumptions.
+\end{enumerate}
+
+%\subsection{Second Quantization}
+%\begin{enumerate}
+%\item \textbf{Fermionic modes and CAR.}
+%For any single-particle label $a$ (e.g. $(\mathbf r,\sigma)$ or $(\mathbf k,\sigma)$),
+%there exist operators $c_a, c_a^\dagger$ obeying
+%$\{c_a,c_b^\dagger\}=\delta_{ab}$ and $\{c_a,c_b\}=\{c_a^\dagger,c_b^\dagger\}=0$.
+
+%\item \textbf{Field operators as a basis change.}
+%The real-space fields are linear combinations of mode operators:
+%$\psi_\sigma(\mathbf r)=\sum_a \phi_a(\mathbf r,\sigma)\,c_a$,
+%$\psi_\sigma^\dagger(\mathbf r)=\sum_a \phi_a^*(\mathbf r,\sigma)\,c_a^\dagger$,
+%with $\{\psi_\sigma(\mathbf r),\psi_{\sigma'}^\dagger(\mathbf r')\}
+%=\delta_{\sigma\sigma'}\delta(\mathbf r-\mathbf r')$.
+
+%\item \textbf{Many-body Hamiltonians in second quantization.}
+%One-body terms are quadratic in fields/modes; two-body terms are quartic.
+%In particular, a contact interaction is
+%\[
+  %H_{\mathrm{int}}=g\int d\mathbf r\;
+  %\psi_\uparrow^\dagger(\mathbf r)\psi_\downarrow^\dagger(\mathbf r)
+  %\psi_\downarrow(\mathbf r)\psi_\uparrow(\mathbf r)
+%\]
+
+%\item \textbf{Grand-canonical ensemble as trace over Fock space.}
+%Thermodynamics is encoded by
+%$Z=\mathrm{Tr}\,e^{-\beta(H-\mu\hat N)}$,
+%where $\hat N$ is the number operator.
+
+%\item \textbf{Interaction picture in imaginary time.}
+%Given $\mathcal H_0=H_0-\mu\hat N$, define
+%$O(\tau)=e^{\tau\mathcal H_0}Oe^{-\tau\mathcal H_0}$,
+%and the time-ordering operator $T_\tau$ orders operators by $\tau$.
+
+%\item \textbf{Time-ordered exponential identity.}
+%For an interaction $H_{\mathrm{int}}(\tau)$ in the interaction picture,
+%$Z=\mathrm{Tr}\left\{e^{-\beta\mathcal H_0}\,
+%T_\tau\exp\left(-\int_0^\beta H_{\mathrm{int}}(\tau)\,d\tau\right)\right\}$.
+
+%\item \textbf{Gaussian (Wick) property for quadratic fermions.}
+%Thermal averages with respect to a quadratic Hamiltonian obey Wick’s theorem:
+%time-ordered products reduce to sums of products of two-point contractions.
+
+%\item \textbf{Hubbard--Stratonovich (HS) identity (operator form).}
+%For an operator bilinear $L(\mathbf r,\tau)$,
+%\[
+%T_\tau e^{\int L^\dagger L}
+%\propto
+%\int D\zeta D\zeta^*\,
+%e^{-\int |\zeta|^2}\,
+%T_\tau e^{\int(L^\dagger\zeta+\zeta^*L)} .
+%\]
+%(Precise constants are fixed by normalization.)
+
+%\item \textbf{Auxiliary pair field scaling.}
+%If $L\propto \sqrt{|g|}$, then scaling $\zeta=|g|^{-1/2}\Delta$
+%rewrites $Z$ as a functional integral over $\Delta(\mathbf r,\tau)$.
+
+%\item \textbf{Saddle-point/mean-field principle.}
+%When the functional integral is dominated by stationary configurations,
+%$\Delta(\mathbf r,\tau)$ may be replaced by a stationary (often $\tau$-independent)
+%field $\Delta(\mathbf r)$ determined by the stationarity condition.
+
+%\item \textbf{Quadratic mean-field Hamiltonian.}
+%At fixed $\Delta(\mathbf r)$ the fermionic problem is quadratic and can be written
+%as
+%\[
+%H_{\mathrm{MF}}=
+%\sum_{\sigma}\int \psi_\sigma^\dagger h_0 \psi_\sigma\,d\mathbf r
+%+\int\left(\Delta\,\psi_\uparrow^\dagger\psi_\downarrow^\dagger
+%+\Delta^*\,\psi_\downarrow\psi_\uparrow\right)\,d\mathbf r
+%+\text{(c-number)}.
+%\]
+
+%\item \textbf{Bogoliubov--Valatin (canonical) transformation.}
+%There exist quasiparticle operators $\gamma_n,\gamma_n^\dagger$
+%(linear in $\psi,\psi^\dagger$) such that:
+%(i) they satisfy CAR, and
+%(ii) they diagonalize $H_{\mathrm{MF}}$.
+%The CAR constraint implies the usual orthonormality/completeness relations
+%for the coefficients $(u_n(\mathbf r),v_n(\mathbf r))$.
+
+%\item \textbf{BdG eigenproblem from diagonalization.}
+%Requiring that $H_{\mathrm{MF}}$ be diagonal in $\gamma_n^\dagger\gamma_n$
+%yields a coupled linear eigenvalue problem for $(u_n,v_n)$
+%(the Bogoliubov--de Gennes equations), plus the self-consistency condition
+%$\Delta(\mathbf r)=-g\langle \psi_\downarrow(\mathbf r)\psi_\uparrow(\mathbf r)\rangle$.
+%\end{enumerate}
+
+
+
+\newpage
+\subsection{Understanding initial interaction equation}
+What is the approximatio
+\begin{equation}
+H_{\mathrm{int}} = g\int \psi^{+}_{\uparrow}(\mathbf r)\,\psi^{+}_{\downarrow}(\mathbf r)\,\psi_{\downarrow}(\mathbf r)\,\psi_{\uparrow}(\mathbf r)\,d\mathbf r. \tag{2.3}
+\end{equation}
 \end{document} 
