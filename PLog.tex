@@ -228,6 +228,94 @@ This relation expresses the consistency condition that creating a fermion in a o
 
 
 
+
+\subsubsection*{F2-6 Derivation of the mode expansion of $\psi(f)$}
+
+Assume that the annihilation operator
+\[
+f \;\mapsto\; \psi(f)
+\]
+is a linear map from the one-particle Hilbert space $H_1$ to operators on fermionic Fock space.
+
+Let $\{\psi_k\}\subset H_1$ be an orthonormal basis of $H_1$, and define the corresponding mode operators by
+\[
+c_k \;\equiv\; \psi(\psi_k).
+\]
+
+Any $f\in H_1$ admits the expansion
+\[
+f(x)=\sum_k \psi_k(x)\,\langle \psi_k,f\rangle.
+\]
+
+Applying the linear map $\psi(\cdot)$ to this expansion and using linearity,
+\[
+\psi(f)
+=\psi\!\left(\sum_k \langle \psi_k,f\rangle\,\psi_k\right)
+=\sum_k \langle \psi_k,f\rangle\,\psi(\psi_k)
+=\sum_k \langle \psi_k,f\rangle\,c_k.
+\]
+
+The inner product $\langle \psi_k,f\rangle$ can be written in coordinate representation as
+\[
+\langle \psi_k,f\rangle=\int dx\,\psi_k^{*}(x)\,f(x).
+\]
+
+Substituting this expression yields
+\[
+\psi(f)
+=\int dx\, f(x)\,\Big(\sum_k \psi_k(x)\,c_k\Big).
+\]
+\subsubsection*{F2-7 (Derivation of the one-body Hamiltonian in field-operator form).}
+
+Let $h_0$ be a linear operator on the one-particle Hilbert space $H_1$.
+Fix an orthonormal basis $\{\psi_k\}\subset H_1$, and define mode operators
+\[
+c_k \equiv \psi(\psi_k).
+\]
+Define the matrix elements of $h_0$ in this basis by
+\[
+h_{kl} \;\equiv\; \langle \psi_k,\, h_0 \psi_l\rangle_{H_1}.
+\]
+
+The corresponding second-quantized one-body Hamiltonian is defined by
+\[
+H_0 \;\equiv\; \sum_{k,l} h_{kl}\, c_k^\dagger c_l .
+\]
+
+Using the mode expansions
+\[
+\psi(x)=\sum_l \psi_l(x)\,c_l,
+\qquad
+\psi^\dagger(x)=\sum_k \psi_k^*(x)\,c_k^\dagger,
+\]
+one computes
+\[
+\int dx\,\psi^\dagger(x)\,(h_0\psi)(x)
+=
+\int dx\,
+\left(\sum_k \psi_k^*(x)c_k^\dagger\right)
+\left(h_0\sum_l \psi_l(x)c_l\right).
+\]
+
+Since $h_0$ acts only on the $x$-dependence of $\psi_l(x)$, this becomes
+\[
+\int dx\,\psi^\dagger(x)\,(h_0\psi)(x)
+=
+\sum_{k,l}
+\left(\int dx\,\psi_k^*(x)\,(h_0\psi_l)(x)\right)
+c_k^\dagger c_l
+=
+\sum_{k,l} h_{kl}\, c_k^\dagger c_l.
+\]
+
+Therefore,
+\[
+H_0
+=
+\sum_{k,l} \langle \psi_k, h_0 \psi_l\rangle\, c_k^\dagger c_l
+=
+\int dx\,\psi^\dagger(x)\,h_0\,\psi(x).
+\]
 %\subsection*{I. Mathematical and Structural Foundations}
 
 %\begin{enumerate}
