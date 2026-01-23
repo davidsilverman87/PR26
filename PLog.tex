@@ -166,17 +166,23 @@ f(\mathbf r)\,
 \]
 and define the creation operator \(\psi_\sigma^\dagger(f)\) as the Hilbert-space adjoint of \(\psi_\sigma(f)\).
 
+\begin{mdframed}
+  \begin{ques}
+  Why is the creation operator the adjoint of the annihilation operator?
+\end{ques}
+\end{mdframed}
+
 The map \(f\mapsto\psi_\sigma(f)\) is linear in \(f\), and the map
 \(f\mapsto\psi_\sigma^\dagger(f)\) is antilinear. Accordingly, there exist operator-valued distributions
 \(\psi_\sigma(\mathbf r)\) and \(\psi_\sigma^\dagger(\mathbf r)\) such that
 \[
 \psi_\sigma(f)
 =
-\int_{\mathbb R^3} d\mathbf r\; f(\mathbf r)\,\psi_\sigma(\mathbf r),
+\int_{\mathbb R^3} d\mathbf r\; f^{\ast} (\mathbf r)\,\psi_\sigma(\mathbf r),
 \qquad
 \psi_\sigma^\dagger(f)
 =
-\int_{\mathbb R^3} d\mathbf r\; f^*(\mathbf r)\,\psi_\sigma^\dagger(\mathbf r).
+\int_{\mathbb R^3} d\mathbf r\; f(\mathbf r)\,\psi_\sigma^\dagger(\mathbf r).
 \]
 These relations express the integral representation of the linear dependence of
 \(\psi_\sigma(f)\) and \(\psi_\sigma^\dagger(f)\) on the test function \(f\).
@@ -263,9 +269,9 @@ The inner product $\langle \psi_k,f\rangle$ can be written in coordinate represe
 Substituting this expression yields
 \[
 \psi(f)
-=\int dx\, f(x)\,\Big(\sum_k \psi_k(x)\,c_k\Big).
+=\int dx\, f^{\ast} (x)\,\Big(\sum_k \psi_k(x)\,c_k\Big).
 \]
-\subsubsection*{F2-7 (Derivation of the one-body Hamiltonian in field-operator form).}
+\subsubsection*{F2-7 Derivation of the one-body Hamiltonian in field-operator form}
 
 Let $h_0$ be a linear operator on the one-particle Hilbert space $H_1$.
 Fix an orthonormal basis $\{\psi_k\}\subset H_1$, and define mode operators
@@ -316,6 +322,211 @@ H_0
 =
 \int dx\,\psi^\dagger(x)\,h_0\,\psi(x).
 \]
+
+
+
+
+\subsubsection*{F2-8. One-body Hamiltonian: \texorpdfstring{$\int dx\,\psi^\dagger(x)\,h_0\,\psi(x)$}{∫ψ† h0 ψ} equals \texorpdfstring{$\sum_{i=1}^N h_0^{(i)}$}{Σ h0(i)} on \texorpdfstring{$\mathcal H_1^{\wedge N}$}{H1^∧N}}
+
+Let \(h_0\) be a one-particle operator on \(\mathcal H_1\) (e.g.\ a differential operator in the coordinate representation).
+Define the second-quantized one-body operator on fermionic Fock space by
+\[
+\widehat H_0 \;\equiv\; \int dx\;\psi^\dagger(x)\,h_0\,\psi(x),
+\qquad x=(\mathbf r,\sigma),\quad dx=\sum_{\sigma}\,d^3\mathbf r,
+\]
+interpreted distributionally via smearing as in F2-2/F2-5.
+
+We show that the restriction of \(\widehat H_0\) to the \(N\)-particle sector \(\mathcal H_1^{\wedge N}\) agrees with the first-quantized operator
+\[
+H_0^{(N)} \;=\; \sum_{i=1}^N h_0^{(i)},
+\]
+where \(h_0^{(i)}\) denotes \(h_0\) acting on the \(i\)-th coordinate \(x_i\) of \(\Psi^{(N)}(x_1,\dots,x_N)\).
+
+Let \(\Phi^{(N)},\Psi^{(N)}\in\mathcal H_1^{\wedge N}\). Consider the matrix element
+\[
+\langle \Phi^{(N)}, \widehat H_0\,\Psi^{(N)}\rangle .
+\]
+Using adjoints and that \(h_0\) is a one-particle operator acting on the \(x\)-variable,
+\[
+\langle \Phi^{(N)}, \widehat H_0\,\Psi^{(N)}\rangle
+=
+\int dx\;
+\big\langle
+\psi(x)\Phi^{(N)},
+\,
+h_0\,\psi(x)\Psi^{(N)}
+\big\rangle_{\mathcal H_1^{\wedge (N-1)}} .
+\]
+
+By the definition of the annihilation operator in coordinate representation (F2-2),
+\[
+(\psi(x)\Psi^{(N)})^{(N-1)}(x_2,\dots,x_N)
+=
+\sqrt N\,\Psi^{(N)}(x,x_2,\dots,x_N),
+\]
+and similarly for \(\Phi^{(N)}\). Substituting this into the previous line and writing the
+\((N-1)\)-particle inner product as an integral over \(x_2,\dots,x_N\) gives
+\begin{align*}
+\langle \Phi^{(N)}, \widehat H_0\,\Psi^{(N)}\rangle
+=
+N\int dx\,dx_2\cdots dx_N\;
+\Phi^{(N)}(x,x_2,\dots,x_N)^{\!*}\;
+\big(h_0^{(x)}\Psi^{(N)}\big)(x,x_2,\dots,x_N),
+\end{align*}
+where \(h_0^{(x)}\) means: apply the one-particle operator \(h_0\) to the \(x\)-dependence of \\
+\(\Psi^{(N)}(x,x_2,\dots,x_N)\), holding \(x_2,\dots,x_N\) fixed.
+\begin{mdframed}\begin{ques}
+  In order for this to be well-defined then, the value of 
+\end{ques}
+
+\end{mdframed}
+
+
+Relabeling \(x\) as \(x_1\),
+\[
+\langle \Phi^{(N)}, \widehat H_0\,\Psi^{(N)}\rangle
+=
+N\int dx_1\cdots dx_N\;
+\Phi^{(N)}(x_1,\dots,x_N)^{\!*}\;
+\big(h_0^{(1)}\Psi^{(N)}\big)(x_1,\dots,x_N).
+\]
+
+Because \(\Phi^{(N)}\) and \(\Psi^{(N)}\) are antisymmetric, the integral with \(h_0\) acting on the
+first slot has the same value as the integral with \(h_0\) acting on any slot \(i\).
+Summing over \(i=1,\dots,N\) therefore produces the factor \(N\), i.e.
+\[
+N\int dx_1\cdots dx_N\;\Phi^{(N)\!*}\,(h_0^{(1)}\Psi^{(N)})
+=
+\sum_{i=1}^N \int dx_1\cdots dx_N\;\Phi^{(N)\!*}\,(h_0^{(i)}\Psi^{(N)}).
+\]
+Hence
+\[
+\langle \Phi^{(N)}, \widehat H_0\,\Psi^{(N)}\rangle
+=
+\left\langle
+\Phi^{(N)},
+\left(\sum_{i=1}^N h_0^{(i)}\right)\Psi^{(N)}
+\right\rangle.
+\]
+
+Since this holds for arbitrary \(\Phi^{(N)}\), the restriction of \(\widehat H_0\) to \(\mathcal H_1^{\wedge N}\)
+equals \(\sum_{i=1}^N h_0^{(i)}\) as an operator on the \(N\)-particle sector.
+
+
+\subsubsection*{F2-10. Equivalence of the two-body interaction in first and second quantization}
+
+We show that the second-quantized operator
+\begin{equation}
+\widehat H_{\mathrm{int}}
+=
+\frac12
+\int dx_1\,dx_2\;
+\psi^\dagger(x_1)\psi^\dagger(x_2)\,
+V(x_1,x_2)\,
+\psi(x_2)\psi(x_1)
+\end{equation}
+acts on the \(N\)-particle sector \(\mathcal H_1^{\wedge N}\) as the first-quantized interaction
+\[
+(H_{\mathrm{int}}^{(N)}\Psi^{(N)})(x_1,\dots,x_N)
+=
+\frac12\sum_{i\neq j} V(x_i,x_j)\,\Psi^{(N)}(x_1,\dots,x_N).
+\]
+
+To avoid ill-defined pointwise products, \(\widehat H_{\mathrm{int}}\) is interpreted distributionally via smearing, as in F2-2 and F2-5.  
+We prove equality by comparing matrix elements on the \(N\)-particle sector.
+
+Let \(\Phi^{(N)},\Psi^{(N)}\in\mathcal H_1^{\wedge N}\). Consider
+\[
+\langle \Phi^{(N)}, \widehat H_{\mathrm{int}} \Psi^{(N)}\rangle .
+\]
+
+Using adjoints and the fact that \(V(x_1,x_2)\) is a c-number kernel,
+\[
+\langle \Phi^{(N)}, \widehat H_{\mathrm{int}} \Psi^{(N)}\rangle
+=
+\frac12
+\int dx_1\,dx_2\;
+\big\langle
+\psi(x_2)\psi(x_1)\Phi^{(N)},
+\,
+V(x_1,x_2)\,
+\psi(x_2)\psi(x_1)\Psi^{(N)}
+\big\rangle_{\mathcal H_1^{\wedge (N-2)}} .
+\]
+
+From the definition of the annihilation operator (F2-2),
+\[
+(\psi(x_2)\psi(x_1)\Psi^{(N)})^{(N-2)}(x_3,\dots,x_N)
+=
+\sqrt{N(N-1)}\,
+\Psi^{(N)}(x_1,x_2,x_3,\dots,x_N),
+\]
+and similarly for \(\Phi^{(N)}\).
+
+Substituting this into the previous expression and performing the
+\((N-2)\)-particle inner product yields
+\begin{align*}
+&\langle \Phi^{(N)}, \widehat H_{\mathrm{int}} \Psi^{(N)}\rangle
+=\\
+&\frac12 N(N-1)
+\int dx_1\,dx_2\,dx_3\cdots dx_N\;
+\Phi^{(N)}(x_1,\dots,x_N)^{\!*}
+\,V(x_1,x_2)\,
+\Psi^{(N)}(x_1,\dots,x_N).
+\end{align*}
+
+Because \(\Phi^{(N)}\) and \(\Psi^{(N)}\) are antisymmetric, the integral with
+\(V\) acting on the specific ordered pair \((1,2)\) has the same value as the
+integral with \(V\) acting on any ordered pair of distinct slots \((i,j)\).
+There are exactly \(N(N-1)\) such ordered pairs. Hence,
+\begin{align*}
+&N(N-1)
+\int dx_1\cdots dx_N\;
+\Phi^{(N)\!*}(x_1,\dots,x_N)\,V(x_1,x_2)\,\Psi^{(N)}(x_1,\dots,x_N)
+=\\
+&\sum_{i\neq j}
+\int dx_1\cdots dx_N\;
+\Phi^{(N)\!*}(x_1,\dots,x_N)\,V(x_i,x_j)\,\Psi^{(N)}(x_1,\dots,x_N).
+\end{align*}
+
+Combining the previous expressions gives
+\[
+\langle \Phi^{(N)}, \widehat H_{\mathrm{int}} \Psi^{(N)}\rangle
+=
+\left\langle
+\Phi^{(N)},
+\left(
+\frac12\sum_{i\neq j} V(x_i,x_j)
+\right)
+\Psi^{(N)}
+\right\rangle .
+\]
+
+Since this holds for arbitrary \(\Phi^{(N)}\), the operators agree on
+\(\mathcal H_1^{\wedge N}\). Thus \(\widehat H_{\mathrm{int}}\) is the
+second-quantized representative of the two-body interaction.
+
+\subsubsection*{F2-11. Special case of two body interaction with \(V(x,x') = g_{\alpha,\beta}\delta(\mathbf{r}-\mathbf{r}')\)}
+Let \(\mathbf{r_j}\) be the position coordinate of \(x_j\) (which includes spin), and \(g_{\alpha,\beta} = \begin{cases}
+  g & \alpha \neq \beta\\
+  0 & \alpha = \beta
+\end{cases}\).\\ Then
+\[
+\widehat H_{\mathrm{int}}
+=
+\frac12
+\int dx_1\,dx_2\;
+\psi^\dagger(x_1)\psi^\dagger(x_2)\,
+g_{\alpha\beta}\delta(\mathbf{r}_1 - \mathbf{r}_2)\,
+\psi(x_2)\psi(x_1).
+\]
+Since the delta function projects this integral onto the subspace where \(\mathbf{r}_1 = \mathbf{r}_2\),
+\[
+\frac{1}{2}g \sum_{\alpha \neq \beta}\int  \mathrm{d} \mathbf{r}\; \psi_\alpha^{\dagger}(\mathbf{r})\psi_\beta^{\dagger}(\mathbf{r})\psi_\beta(\mathbf{r}) \psi_\alpha(\mathbf{r})
+\]
+
+
+
 %\subsection*{I. Mathematical and Structural Foundations}
 
 %\begin{enumerate}
