@@ -11,7 +11,7 @@
 
 \section*{\S\,2. Representation of the thermodynamic quantities of a superconductor in the form of functional integrals}
 
-We shall consider a model of a superconductor in which the Hamiltonian of the electronic system is a sum of the Hamiltonian of free electrons $H_{0}$ and the Hamiltonian describing, in simplified form, the direct interaction between electrons induced by phonons. Thus, we assume *) 
+We shall consider a model of a superconductor in which the Hamiltonian of the electronic system is a sum of the Hamiltonian of free electrons $H_{0}$ and the Hamiltonian describing, in simplified form, the direct interaction between electrons induced by phonons. Thus, we assume \footnote{ For more details about this model see in the book Abrikosov, Gor'kov, Dzyaloshinskii (1962).} 
 \begin{equation}
 H = H_{0} + H_{\mathrm{int}}, \tag{2.1}
 \end{equation}
@@ -28,6 +28,8 @@ Our nearest goal is the representation of the grand statistical sum and a number
 
 The method of functional integration is promising also in that with its help one succeeds in going beyond the limits of the approximation of the self-consistent field, which is the basis of the modern formulation of the theory. By virtue of the favorable relation between the parameters entering the theory, this approximation turns out to be rather accurate for a massive superconductor at temperatures not too close to the critical one. In recent years those aspects of the phenomenon of superconductivity have been studied ever more intensively, for the description of which it is necessary to refine the approximation of the self-consistent field. The method of functional integration turns out here to be very convenient. Using exact functional quadratures, we shall easily see in which cases such a refinement is necessary.
 
+\newpage
+
 Let us represent the statistical operator in the form of a product of the statistical operator relating to the system of free electrons, and the corresponding $T$-exponent. Then for the grand statistical sum we obtain
 \[
   Z=\mathrm{Sp}\left\{e^{-\beta\mathcal{H}_{0}}\,T_{\tau}\exp\!\left(-\int_{0}^{\beta}H_{\mathrm{int}}(\tau)\,d\tau\right)\right\}.
@@ -39,7 +41,7 @@ T_{\tau}\exp\!\left\{-g\int_{0}^{\beta}d\tau\int d\mathbf r\,
 = \\
 T_{\tau}\exp\!\left\{\int_{0}^{\beta}d\tau\int L^{+}(\mathbf r,\tau)L(\mathbf r,\tau)\,d\mathbf r\right\}.
 \end{align*}
-As shown in the Appendix, in this case for the $T$-exponent the representation through a functional integral over the space of functions depending on $\mathbf r$ and $\tau$*) is valid:
+As shown in the Appendix, in this case for the $T$-exponent the representation through a functional integral over the space of functions depending on $\mathbf r$ and $\tau$ \footnote{To avoid misunderstandings, we note that $\psi^{+}(\mathbf r,\tau)$ denotes not $\big(\psi(\mathbf r,\tau)\big)^{+}$, but \\ $\exp(\tau\mathcal{H}_{0})\,\psi^{+}(\mathbf r)\,\exp(-\tau\mathcal{H}_{0})$.} is valid:
 \begin{align*}
 &T_{\tau}\exp\!\left\{\int_{0}^{\beta}d\tau\int L^{+}(\mathbf r,\tau)L(\mathbf r,\tau)\,d\mathbf r\right\}
 = \\
@@ -80,15 +82,263 @@ which would represent, with accuracy up to a $c$-number factor, the equilibrium 
 \[
   \mathcal{H}_{0}+\int\big(\psi^{+}_{\uparrow}(\mathbf r)\psi^{+}_{\downarrow}(\mathbf r)\Delta(\mathbf r)+\text{e.c.}\big)\,d\mathbf r.
 \]
-In reality, since $\Delta$ depends on the imaginary time $\tau$, there is no such Hamiltonian, nevertheless we shall interpret\dots
+In reality, since $\Delta$ depends on the imaginary time $\tau$, there is no such Hamiltonian, nevertheless we shall interpret the trace of operator (2.5) as a statistical sum,
+regarded as a functional of the pair-source field, under the assumption
+that the source strength depends on the coordinate $\mathbf r$ and on
+imaginary time $\tau$.
+This functional, introduced for the first time by N.\,N.~Bogoliubov,
+will be denoted by
+\begin{align}
+Z_{\mathrm B}[\Delta]
+&\equiv \exp\{-\beta \Omega_{\mathrm B}[\Delta]\} \nonumber \\
+&= \operatorname{Sp}\!\left\{
+e^{-\beta \hat{\mathcal H}_0}
+\, T_\tau
+\exp\!\left[
+-\int_0^\beta d\tau \int d\mathbf r
+\bigl(
+\psi^\dagger_\uparrow(\mathbf r,\tau)
+\psi^\dagger_\downarrow(\mathbf r,\tau)\,
+\Delta(\mathbf r,\tau)
++ \text{h.c.}
+\bigr)
+\right]
+\right\}.
+\tag{2.6}
+\end{align}
 
-\bigskip
-\hrule
-\medskip
+It is now clear that the exact expression for the statistical sum of a
+superconductor, according to formula~(2.4), is obtained as a result of
+functional averaging with Gaussian weight
+\[
+\exp\!\left(
+\frac{1}{g}
+\int_0^\beta d\tau \int d\mathbf r\,
+|\Delta(\mathbf r,\tau)|^2
+\right)
+\]
+of the functional $Z_{\mathrm B}[\Delta]$.
 
-*) For more details about this model see in the book Abrikosov, Gor'kov, Dzyaloshinskii (1962).
+The representation of the form~(2.4) is also obtained in the case when
+a magnetic field, impurity potential, etc.\ are present.
+Indeed, in the presence, for example, of a magnetic field,
+$\hat{\mathbf p} \to \hat{\mathbf p} - e\mathbf A$,
+and therefore
+$\hat{\mathcal H}_0 \to \hat{\mathcal H}_0 + \hat H_1$, where
+\begin{equation}
+\hat H_1
+=
+-\frac{e}{2m}
+\sum_\sigma
+\int d\mathbf r\,
+\psi^\dagger_\sigma(\mathbf r)
+\bigl(
+\hat{\mathbf p}\mathbf A
++ \mathbf A \hat{\mathbf p}
+- e\mathbf A^2
+\bigr)
+\psi_\sigma(\mathbf r).
+\end{equation}
 
-*) To avoid misunderstandings, we note that $\psi^{+}(\mathbf r,\tau)$ denotes not $\big(\psi(\mathbf r,\tau)\big)^{+}$, but \\ $\exp(\tau\mathcal{H}_{0})\,\psi^{+}(\mathbf r)\,\exp(-\tau\mathcal{H}_{0})$.
+Since under the $T_\tau$-ordering sign the operator algebra is
+commutative, we have
+\begin{align}
+Z
+&=
+\operatorname{Sp}\!\left\{
+e^{-\beta \hat{\mathcal H}_0}
+\, T_\tau
+\exp\!\left(
+-\int_0^\beta d\tau\, \hat H_1(\tau)
+\right)
+\exp\!\left(
+-\int_0^\beta d\tau\, \hat H_{\mathrm{int}}(\tau)
+\right)
+\right\},
+\end{align}
+and all transformations that led to formula~(2.4) are also valid in this
+case.
+
+The average current density $\mathbf j(\mathbf r)$ is obtained by taking
+the variational derivative with respect to the vector potential of both
+sides of the equality defining the statistical sum:
+\begin{align}
+Z
+&=
+\exp\{-\beta \Omega[\mathbf A]\}
+=
+\frac{
+\displaystyle
+\int \mathcal D\Delta\, \mathcal D\Delta^*\,
+\exp\!\left[
+\frac{1}{g}
+\int_0^\beta d\tau \int d\mathbf r\,
+|\Delta(\mathbf r,\tau)|^2
+-\beta \Omega_{\mathrm B}[\Delta,\mathbf A]
+\right]
+}{
+\displaystyle
+\int \mathcal D\Delta\, \mathcal D\Delta^*\,
+\exp\!\left[
+\frac{1}{g}
+\int_0^\beta d\tau \int d\mathbf r\,
+|\Delta(\mathbf r,\tau)|^2
+\right]
+}.
+\tag{2.7}
+\end{align}
+
+As a result, for
+\[
+\langle \hat{\mathbf j} \rangle
+=
+-\frac{\delta \Omega}{\delta \mathbf A(\mathbf r)}
+\equiv \mathbf j(\mathbf r),
+\]
+we obtain
+\begin{align}
+\mathbf j(\mathbf r)
+=
+\frac{
+\displaystyle
+\int \mathcal D\Delta\, \mathcal D\Delta^*\,
+\exp\!\left[
+\frac{1}{g}
+\int_0^\beta d\tau \int d\mathbf r\,
+|\Delta(\mathbf r,\tau)|^2
+-\beta \Omega_{\mathrm B}[\Delta,\mathbf A]
+\right]
+\langle \hat{\mathbf j}(\mathbf r) \rangle_{\mathrm B}
+}{
+\displaystyle
+\int \mathcal D\Delta\, \mathcal D\Delta^*\,
+\exp\!\left[
+\frac{1}{g}
+\int_0^\beta d\tau \int d\mathbf r\,
+|\Delta(\mathbf r,\tau)|^2
+-\beta \Omega_{\mathrm B}[\Delta,\mathbf A]
+\right]
+}.
+\tag{2.8}
+\end{align}
+
+Here
+\begin{equation}
+\langle \hat{\mathbf j}(\mathbf r) \rangle_{\mathrm B}
+=
+-\frac{\delta \Omega_{\mathrm B}}{\delta \mathbf A(\mathbf r)}.
+\tag{2.9}
+\end{equation}
+
+The current operator has the usual form:
+\begin{align}
+\hat{\mathbf j}(\mathbf r)
+&=
+\frac{e}{2m}
+\sum_\sigma
+\Bigl[
+\psi^\dagger_\sigma(\mathbf r)\,
+\hat{\mathbf p}\,
+\psi_\sigma(\mathbf r)
+-
+(\hat{\mathbf p}\psi^\dagger_\sigma(\mathbf r))\,
+\psi_\sigma(\mathbf r)
+\Bigr]
+-
+\frac{e^2}{m}
+\sum_\sigma
+\psi^\dagger_\sigma(\mathbf r)\,
+\psi_\sigma(\mathbf r)\,
+\mathbf A(\mathbf r).
+\tag{2.10}
+\end{align}
+
+It is evident that the exact value of the average current is obtained as
+a result of double averaging: the first average is determined by
+relation~(2.9) and gives the current as a functional of the pair-source
+field $\Delta(\mathbf r,\tau)$; the second, functional averaging is
+performed according to formula~(2.8) over the field $\Delta(\mathbf
+r,\tau)$.
+
+We shall also be interested in the pair correlation function
+\begin{align}
+\mathcal G(\mathbf r,\mathbf r';\tau,\tau')
+&=
+\bigl\langle
+T_\tau
+\psi^\dagger_\uparrow(\mathbf r,\tau)
+\psi^\dagger_\downarrow(\mathbf r,\tau)
+\psi_\downarrow(\mathbf r',\tau')
+\psi_\uparrow(\mathbf r',\tau')
+\bigr\rangle \nonumber \\
+&=
+\frac{1}{Z}
+\operatorname{Sp}\!\left\{
+T_\tau
+\psi^\dagger_\uparrow(\mathbf r,\tau)
+\psi^\dagger_\downarrow(\mathbf r,\tau)
+\psi_\downarrow(\mathbf r',\tau')
+\psi_\uparrow(\mathbf r',\tau')
+e^{-\beta \hat{\mathcal H}}
+\right\}.
+\end{align}
+
+For this quantity we obtain a functional-integral representation as
+follows:
+\begin{align}
+\mathcal G(\mathbf r,\mathbf r';\tau,\tau')
+&=
+\frac{1}{Z}
+\int \mathcal D\Delta\, \mathcal D\Delta^*\,
+\exp\!\left[
+\frac{1}{g}
+\int_0^\beta d\tau \int d\mathbf r\,
+|\Delta(\mathbf r,\tau)|^2
+\right]
+\frac{\delta^2}{\delta \Delta^*(\mathbf r',\tau')\,\delta \Delta(\mathbf r,\tau)}
+\nonumber \\
+&\qquad\times
+T_\tau
+\exp\!\left[
+-\int_0^\beta d\tau \int d\mathbf r\,
+\bigl(
+\psi^\dagger_\uparrow
+\psi^\dagger_\downarrow
+\Delta
++ \text{h.c.}
+\bigr)
+\right].
+\end{align}
+
+Integrating twice by parts, we finally obtain
+\begin{align}
+\mathcal G
+=
+\frac{1}{Z g^2}
+\int \mathcal D\Delta\, \mathcal D\Delta^*\,
+\Delta(\mathbf r,\tau)\,
+\Delta^*(\mathbf r',\tau')\,
+\exp\!\left[
+\frac{1}{g}
+\int_0^\beta d\tau \int d\mathbf r\,
+|\Delta(\mathbf r,\tau)|^2
+-\beta \Omega_{\mathrm B}[\Delta]
+\right].
+\tag{2.11}
+\end{align}
+
+Thus, we now have functional quadratures for all quantities of interest.
+It is clear that the exact calculation of the superconducting statistical
+sum is technically impossible.
+As follows from formula~(2.4), one must first find
+$\Omega_{\mathrm B}[\Delta]$ as a functional of the arbitrary pair-source
+field $\Delta(\mathbf r,\tau)$, and then perform the functional averaging
+with Gaussian weight.
+Each of these problems is extraordinarily difficult.
+Therefore, one has to proceed along the path of approximate solutions.
+
+
+
 
 \end{document}
 

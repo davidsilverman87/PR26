@@ -202,40 +202,13 @@ For any region \(\Omega_{N-1}\subset(\mathbb R^3\times\{\uparrow,\downarrow\})^{
 is the probability density for finding the remaining \(N-1\) fermions in \(\Omega_{N-1}\),
 conditional on one fermion being in the one-particle state \((f,\sigma)\).
 
-\subsubsection*{F2-5 Canonical anticommutation relations}
-
-The field operators satisfy the canonical anticommutation relations
-\[
-\{\psi_\sigma(\mathbf r),\psi_{\sigma'}^\dagger(\mathbf r')\}
-=
-\delta_{\sigma\sigma'}\,\delta(\mathbf r-\mathbf r'),
-\qquad
-\{\psi_\sigma(\mathbf r),\psi_{\sigma'}(\mathbf r')\}=0,
-\qquad
-\{\psi_\sigma^\dagger(\mathbf r),\psi_{\sigma'}^\dagger(\mathbf r')\}=0,
-\]
-to be interpreted after smearing with test functions.
-
-Equivalently, for smeared operators,
-\[
-\{\psi_\sigma(f),\psi_{\sigma'}^\dagger(g)\}
-=
-\delta_{\sigma\sigma'}\,\langle f,g\rangle_{\mathcal H_1},
-\]
-where
-\[
-\langle f,g\rangle_{\mathcal H_1}
-=
-\int_{\mathbb R^3} d\mathbf r\; f^*(\mathbf r)g(\mathbf r)
-\]
-is the inner product on the one-particle Hilbert space.
-
-This relation expresses the consistency condition that creating a fermion in a one-particle state and then testing for its presence returns precisely the overlap of those one-particle states, and nothing else.
 
 
 
 
-\subsubsection*{F2-6 Derivation of the mode expansion of $\psi(f)$}
+
+
+\subsubsection*{F2-5 Derivation of the mode expansion of $\psi(f)$}
 
 Assume that the annihilation operator
 \[
@@ -271,6 +244,42 @@ Substituting this expression yields
 \psi(f)
 =\int dx\, f^{\ast} (x)\,\Big(\sum_k \psi_k(x)\,c_k\Big).
 \]
+
+
+
+\subsubsection*{F2-6 Canonical anticommutation relations}
+
+The field operators satisfy the canonical anticommutation relations
+\[
+\{\psi_\sigma(\mathbf r),\psi_{\sigma'}^\dagger(\mathbf r')\}
+=
+\delta_{\sigma\sigma'}\,\delta(\mathbf r-\mathbf r'),
+\qquad
+\{\psi_\sigma(\mathbf r),\psi_{\sigma'}(\mathbf r')\}=0,
+\qquad
+\{\psi_\sigma^\dagger(\mathbf r),\psi_{\sigma'}^\dagger(\mathbf r')\}=0,
+\]
+to be interpreted after smearing with test functions.
+
+Equivalently, for smeared operators,
+\[
+\{\psi_\sigma(f),\psi_{\sigma'}^\dagger(g)\}
+=
+\delta_{\sigma\sigma'}\,\langle f,g\rangle_{\mathcal H_1},
+\]
+where
+\[
+\langle f,g\rangle_{\mathcal H_1}
+=
+\int_{\mathbb R^3} d\mathbf r\; f^*(\mathbf r)g(\mathbf r)
+\]
+is the inner product on the one-particle Hilbert space.
+
+This relation expresses the consistency condition that creating a fermion in a one-particle state and then testing for its presence returns precisely the overlap of those one-particle states, and nothing else.
+
+
+
+
 \subsubsection*{F2-7 Derivation of the one-body Hamiltonian in field-operator form}
 
 Let $h_0$ be a linear operator on the one-particle Hilbert space $H_1$.
@@ -411,7 +420,54 @@ Hence
 
 Since this holds for arbitrary \(\Phi^{(N)}\), the restriction of \(\widehat H_0\) to \(\mathcal H_1^{\wedge N}\)
 equals \(\sum_{i=1}^N h_0^{(i)}\) as an operator on the \(N\)-particle sector.
+\subsubsection*{F2-9. Two-body interaction in a mode basis}
 
+Let $\{\varphi_i(x)\}$ be an orthonormal basis of the one-particle Hilbert space
+$\mathcal H_1$, where $x=(\mathbf r,\sigma)$, and let
+\[
+\psi(x)=\sum_i \varphi_i(x)\,c_i,
+\qquad
+\psi^\dagger(x)=\sum_i \varphi_i^*(x)\,c_i^\dagger
+\]
+be the corresponding mode expansion of the field operators.
+
+Consider a general two-body interaction kernel
+$V(x_1,x_2)$, symmetric under exchange of its arguments.
+Define the interaction matrix elements in the mode basis by
+\[
+V_{ijkl}
+\;\equiv\;
+\int dx_1\,dx_2\;
+\varphi_i^*(x_1)\,\varphi_j^*(x_2)\,
+V(x_1,x_2)\,
+\varphi_k(x_1)\,\varphi_l(x_2).
+\]
+
+These quantities are the matrix elements of the two-body operator
+$V$ between antisymmetrized two-particle states constructed from the
+one-particle basis $\{\varphi_i\}$.
+
+With this definition, the second-quantized two-body interaction operator
+can be written in mode form as
+\[
+\widehat H_{\mathrm{int}}
+=
+\frac12
+\sum_{i j k l}
+V_{ijkl}\,
+c_i^\dagger c_j^\dagger c_l c_k .
+\]
+
+The factor $\tfrac12$ compensates for the double counting of particle pairs
+in the summation over mode indices and corresponds to the restriction
+$i\neq j$ in the first-quantized expression
+$\tfrac12\sum_{i\neq j}V(x_i,x_j)$.
+
+This expression is purely algebraic once the kernel $V(x_1,x_2)$
+and the one-particle basis are fixed; no approximation is involved at this
+stage. The equivalence between this mode-space form and the coordinate-space
+field-operator form is established by explicit comparison of matrix elements
+(see F2-10).
 
 \subsubsection*{F2-10. Equivalence of the two-body interaction in first and second quantization}
 
@@ -782,10 +838,14 @@ Since the delta function projects this integral onto the subspace where \(\mathb
 
 
 
-\newpage
-\subsection{Understanding initial interaction equation}
-What is the approximatio
-\begin{equation}
-H_{\mathrm{int}} = g\int \psi^{+}_{\uparrow}(\mathbf r)\,\psi^{+}_{\downarrow}(\mathbf r)\,\psi_{\downarrow}(\mathbf r)\,\psi_{\uparrow}(\mathbf r)\,d\mathbf r. \tag{2.3}
-\end{equation}
-\end{document} 
+\section{January 23, 2026}
+\noindent\textbf{Tasks} 
+\begin{itemize}
+  \item Finish studying foundational field operator and second quantization material
+  \item Begin studying first part of Svidzinsky derivation of approximation for interaction.
+\end{itemize}
+
+
+
+
+\end{document}
